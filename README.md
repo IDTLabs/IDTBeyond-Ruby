@@ -1,7 +1,6 @@
 # Idtbeyond
 
 [![Join the chat at https://gitter.im/IDTLabs/IDTBeyond-Ruby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/IDTLabs/IDTBeyond-Ruby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Gem Version](https://badge.fury.io/rb/threescale_api.svg)](http://badge.fury.io/rb/threescale_api)
 TODO: Write a gem description
 
 ## Installation
