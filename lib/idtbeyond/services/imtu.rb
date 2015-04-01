@@ -11,12 +11,10 @@ module IDTBeyond
         @term_id = term_id
         @url = ENV['IDTBEYOND_API_URL'] || 'https://api.idtbeyond.com'
         @plan_type = ENV['IDTBEYOND_PLAN_TYPE'] || 'Production'
-        p "plan_type: #{@plan_type}"
-        p "url: #{@url}"
         @conn = Faraday.new(:url => @url, :headers => {
-                                            'x-idt-beyond-app-id' => @app_id,
-                                            'x-idt-beyond-app-key' => @app_key
-                                        }) do |faraday|
+          'x-idt-beyond-app-id' => @app_id,
+          'x-idt-beyond-app-key' => @app_key
+        }) do |faraday|
           faraday.request :url_encoded
           faraday.response :logger
           faraday.adapter Faraday.default_adapter
@@ -33,6 +31,7 @@ module IDTBeyond
       end
       def get_status
         response = @conn.get "/v1/status"
+        p response
         return JSON(response.body) if response.status == 200
         false
       end
@@ -58,11 +57,11 @@ module IDTBeyond
       end
       def get_local_value(amount, carrier_code, country_code, currency_code)
         response = @conn.get "/v1/iatu/products/reports/local-value", {
-                                                                        :carrier_code => carrier_code,
-                                                                        :country_code => country_code,
-                                                                        :currency_code => currency_code,
-                                                                        :amount => amount
-                                                                    }
+          :carrier_code => carrier_code,
+          :country_code => country_code,
+          :currency_code => currency_code,
+          :amount => amount
+        }
         JSON(response.body)
       end
       def validate_number(country_code, phone_number)
@@ -73,37 +72,37 @@ module IDTBeyond
       def post_topup(amount, carrier_code, country_code, phone_number )
         client_transaction_id = @app_id + '-' + "%06d" % Random.rand(0..999999)
         response = @conn.post "/v1/iatu/topups", {
-                                                   :country_code => country_code,
-                                                   :carrier_code => carrier_code,
-                                                   :client_transaction_id => client_transaction_id,
-                                                   :terminal_id => @term_id,
-                                                   :mobile_number => phone_number,
-                                                   :plan => @plan_type,
-                                                   :amount => amount
-                                               }
+         :country_code => country_code,
+         :carrier_code => carrier_code,
+         :client_transaction_id => client_transaction_id,
+         :terminal_id => @term_id,
+         :mobile_number => phone_number,
+         :plan => @plan_type,
+         :amount => amount
+        }
         JSON response.body
       end
       def client_transaction_id_search(client_transaction_id, date_from, date_to)
         response = @conn.post "/v1/iatu/topups/reports", {
-                                                           :client_transaction_id => client_transaction_id,
-                                                           :type_of_report => 'client_transaction_id',
-                                                           :date_from => date_from,
-                                                           :date_to => date_to
-                                                       }
+          :client_transaction_id => client_transaction_id,
+          :type_of_report => 'client_transaction_id',
+          :date_from => date_from,
+          :date_to => date_to
+        }
         JSON response.body
       end
       def to_service_number_search(to_service_number)
         response = @conn.post "/v1/iatu/topups/reports", {
-                                                           :to_service_number => to_service_number,
-                                                           :type_of_report => 'to_service_number'
-                                                       }
+          :to_service_number => to_service_number,
+          :type_of_report => 'to_service_number'
+        }
         JSON response.body
       end
       def reverse_topup(client_transaction_id, to_service_number)
         response = @conn.post "/v1/iatu/topups/reverse", {
-                                                           :client_transaction_id => client_transaction_id,
-                                                           :to_service_number => to_service_number
-                                                       }
+          :client_transaction_id => client_transaction_id,
+          :to_service_number => to_service_number
+        }
         JSON response.body
       end
     end
