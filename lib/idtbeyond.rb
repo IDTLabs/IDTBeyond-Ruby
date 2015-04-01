@@ -1,5 +1,5 @@
-require "idtbeyond/version"
 require "faraday"
+require "idtbeyond/version"
 require "json"
 
 module IDTBeyond
@@ -11,6 +11,8 @@ module IDTBeyond
         @app_key = app_key
         @term_id = term_id
         @url = ENV['IDTBEYOND_API_URL'] || 'https://api.idtbeyond.com'
+        @plan_type = ENV['IDTBEYOND_PLAN_TYPE'] || 'Production'
+        p "plan_type: #{@plan_type}"
         p "url: #{@url}"
         @conn = Faraday.new(:url => @url, :headers => {
             'x-idt-beyond-app-id' => @app_id,
@@ -55,7 +57,7 @@ module IDTBeyond
         return JSON(response.body) if response.status == 200
         false
       end
-      def get_local_value(carrier_code, country_code, currency_code, amount)
+      def get_local_value(amount, carrier_code, country_code, currency_code)
         response = @conn.get "/v1/iatu/products/reports/local-value", {
           :carrier_code => carrier_code,
           :country_code => country_code,
@@ -67,6 +69,20 @@ module IDTBeyond
       def validate_number(country_code, phone_number)
         response = @conn.get "/v1/iatu/number-validator", {:country_code => country_code, :mobile_number => phone_number}
         JSON(response.body)
+      end
+
+      def post_topup(amount, carrier_code, country_code, phone_number )
+        client_transaction_id = @app_id + '-' + "%06d" % Random.rand(0..999999)
+        response = @conn.post "/v1/iatu/topups", {
+          :country_code => country_code,
+          :carrier_code => carrier_code,
+          :client_transaction_id => client_transaction_id,
+          :terminal_id => @term_id,
+          :mobile_number => phone_number,
+          :plan => @plan_type,
+          :amount => amount
+         }
+        JSON response.body
       end
     end
   end
