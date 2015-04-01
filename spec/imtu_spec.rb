@@ -53,4 +53,23 @@ describe 'IDTBeyond - IMTU' do
       expect(response['success']).to eq(true)
     end
   end
+  describe 'reverse_topup' do
+    it 'should call the /v1/iatu/topups/reverse' do
+      stub_request(:post, "https://api.idtbeyond.com/v1/iatu/topups/reverse").
+          with(
+            :body => {
+              "client_transaction_id"=>"client-transaction-id",
+              "to_service_number"=>"to-service-number"},
+            :headers => {
+              'Accept'=>'*/*',
+              'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+              'Content-Type'=>'application/x-www-form-urlencoded',
+              'User-Agent'=>'Faraday v0.9.1',
+              'X-Idt-Beyond-App-Id'=>'app-id',
+              'X-Idt-Beyond-App-Key'=>'app-key'}).
+          to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
+      response = @idtbeyond.reverse_topup "client-transaction-id", "to-service-number"
+      expect(response['success']).to eq(true)
+    end
+  end
 end

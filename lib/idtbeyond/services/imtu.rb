@@ -32,27 +32,27 @@ module IDTBeyond
       def get_status
         response = @conn.get "/v1/status"
         p response
-        return JSON(response.body) if response.status == 200
+        return JSON response.body if response.status == 200
         false
       end
       def get_balance
         response = @conn.get "/v1/iatu/balance"
-        return JSON(response.body) if response.status == 200
+        return JSON response.body if response.status == 200
         false
       end
       def get_all_topups_totals(date_from, date_to)
         response = @conn.get "/v1/iatu/topups/reports/totals", {:date_from => date_from, :date_to => date_to}
-        return JSON(response.body) if response.status == 200
+        return JSON response.body if response.status == 200
         false
       end
       def get_all_topups(date_from, date_to)
         response = @conn.get "/v1/iatu/topups/reports/all", {:date_from => date_from, :date_to => date_to}
-        return JSON(response.body) if response.status == 200
+        return JSON response.body if response.status == 200
         false
       end
       def get_all_charges(date_from, date_to)
         response = @conn.get "/v1/iatu/charges/reports/all", {:date_from => date_from, :date_to => date_to}
-        return JSON(response.body) if response.status == 200
+        return JSON response.body if response.status == 200
         false
       end
       def get_local_value(amount, carrier_code, country_code, currency_code)
@@ -62,11 +62,11 @@ module IDTBeyond
           :currency_code => currency_code,
           :amount => amount
         }
-        JSON(response.body)
+        JSON response.body
       end
       def validate_number(country_code, phone_number)
         response = @conn.get "/v1/iatu/number-validator", {:country_code => country_code, :mobile_number => phone_number}
-        JSON(response.body)
+        JSON response.body
       end
 
       def post_topup(amount, carrier_code, country_code, phone_number )
