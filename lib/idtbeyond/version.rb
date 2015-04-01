@@ -1,3 +1,3 @@
-module Idtbeyond
+module IDTBeyond
   VERSION = "0.0.1"
 end

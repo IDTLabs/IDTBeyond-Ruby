@@ -5,7 +5,7 @@ require 'idtbeyond/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "idtbeyond"
-  spec.version       = Idtbeyond::VERSION
+  spec.version       = IDTBeyond::VERSION
   spec.authors       = ["Robbie Holmes"]
   spec.email         = ["robbiethegeek@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
