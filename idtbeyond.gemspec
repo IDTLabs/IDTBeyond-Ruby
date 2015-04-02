@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'idtbeyond/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "IDTBeyond API"
+  spec.name          = "IDTBeyond"
   spec.version       = IDTBeyond::VERSION
   spec.authors       = ["Robbie Holmes"]
   spec.email         = ["robbiethegeek@gmail.com"]
