@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'idtbeyond/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "idtbeyond"
+  spec.name          = "IDTBeyond API"
   spec.version       = IDTBeyond::VERSION
   spec.authors       = ["Robbie Holmes"]
   spec.email         = ["robbiethegeek@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{The gem for interacting with the IDTBeyond API.}
+  spec.description   = %q{This gem will allow developers to interact with the IDTBeyond API for all published services.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

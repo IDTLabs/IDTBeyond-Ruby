@@ -10,11 +10,11 @@ module IDTBeyond
         @app_id = app_id
         @app_key = app_key
         @term_id = term_id
-        @url = ENV['IDTBEYOND_API_URL'] || 'https://api.idtbeyond.com'
-        @plan_type = ENV['IDTBEYOND_PLAN_TYPE'] || 'Production'
+        @url = ENV["IDTBEYOND_API_URL"] || "https://api.idtbeyond.com"
+        @plan_type = ENV["IDTBEYOND_PLAN_TYPE"] || "Production"
         @conn = Faraday.new(:url => @url, :headers => {
-          'x-idt-beyond-app-id' => @app_id,
-          'x-idt-beyond-app-key' => @app_key
+          "x-idt-beyond-app-id" => @app_id,
+          "x-idt-beyond-app-key" => @app_key
         }) do |faraday|
           faraday.request :url_encoded
           faraday.response :logger
@@ -27,7 +27,7 @@ module IDTBeyond
       def client_transaction_id_search(client_transaction_id, date_from, date_to)
         response = @conn.post "/v1/iatu/topups/reports", {
         :client_transaction_id => client_transaction_id,
-        :type_of_report => 'client_transaction_id',
+        :type_of_report => "client_transaction_id",
         :date_from => date_from,
         :date_to => date_to
         }
@@ -77,14 +77,14 @@ module IDTBeyond
         false
       end
 
-      def post_topup(amount, carrier_code, country_code, phone_number )
-        client_transaction_id = @app_id + '-' + "%06d" % Random.rand(0..999999)
+      def post_topup(amount, carrier_code, country_code, mobile_number )
+        client_transaction_id = @app_id + "-" + "%06d" % Random.rand(0..999999)
         response = @conn.post "/v1/iatu/topups", {
         :country_code => country_code,
         :carrier_code => carrier_code,
         :client_transaction_id => client_transaction_id,
         :terminal_id => @term_id,
-        :mobile_number => phone_number,
+        :mobile_number => mobile_number,
         :plan => @plan_type,
         :amount => amount
         }
@@ -100,13 +100,13 @@ module IDTBeyond
       def to_service_number_search(to_service_number)
         response = @conn.post "/v1/iatu/topups/reports", {
         :to_service_number => to_service_number,
-        :type_of_report => 'to_service_number'
+        :type_of_report => "to_service_number"
         }
         JSON response.body
       end
-      def validate_number(country_code, phone_number)
+      def validate_number(country_code, mobile_number)
         response = @conn.get "/v1/iatu/number-validator", {
-                                                            :country_code => country_code, :mobile_number => phone_number}
+                                                            :country_code => country_code, :mobile_number => mobile_number}
         JSON response.body
       end
     end
