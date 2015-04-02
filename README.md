@@ -17,7 +17,7 @@ To use this service, sign up for a free account at: [https://portal.idtbeyond.co
 ## Setup your environment
 
 1. Make sure above requirements are fulfilled. (see site documentation in links above)
-2. run `npm install idtbeyond --save` to add this module to your project 
+2. run `gem install idtbeyond` to add this module to your project 
 
 ## Testing
 
