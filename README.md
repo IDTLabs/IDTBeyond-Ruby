@@ -80,6 +80,7 @@ This endpoint retrieves a current list of products offered by our IATU API.
 ```ruby
 idtbeyond_iatu.get_products
 ```
+**Response:**
 
 ```json
 [
@@ -455,6 +456,7 @@ to_service_number | true | string | The service number of the financial transact
 ## Charges Reports (all)
 
 Returns a list of any credit card charges, wire-transfers, or credit adjustments on your application account.
+
 **Request:**
 
 ```ruby
