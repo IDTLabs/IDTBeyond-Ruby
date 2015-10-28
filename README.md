@@ -178,12 +178,12 @@ This is how you topup a phone in another country.
 
 ### Example:
 
-`idtbeyond_iatu.post_topup "amount", "carrier_code", "country_code", "mobile_number"`
+`idtbeyond_iatu.post_topup "product_code" , amount", "carrier_code", "country_code", "mobile_number"`
 
 ### Request:
 
 ```ruby
-idtbeyond_iatu.post_topup "1000", "Claro", "GT", "50247280123"
+idtbeyond_iatu.post_topup "76560", "1000", "Claro", "GT", "50247280123"
 ```
 
 ### Response:

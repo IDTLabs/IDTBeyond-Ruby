@@ -77,9 +77,10 @@ module IDTBeyond
         false
       end
 
-      def post_topup(amount, carrier_code, country_code, mobile_number )
+      def post_topup(product_code, amount, carrier_code, country_code, mobile_number )
         client_transaction_id = @app_id + "-" + "%06d" % Random.rand(0..999999)
         response = @conn.post "/v1/iatu/topups", {
+        :product_code => product_code,
         :country_code => country_code,
         :carrier_code => carrier_code,
         :client_transaction_id => client_transaction_id,

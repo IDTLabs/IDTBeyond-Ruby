@@ -141,6 +141,7 @@ describe "IDTBeyond - IMTU" do
       stub_request(:post, "https://api.idtbeyond.com/v1/iatu/topups").
       with(
       :body => {
+    "product_code"=>"76560",
     "amount"=>"amount",
     "carrier_code"=>"carrier-code",
     "client_transaction_id"=>/app-id-\d+/,
@@ -156,7 +157,7 @@ describe "IDTBeyond - IMTU" do
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
-      response = @idtbeyond.post_topup "amount", "carrier-code", "country-code", "phone-number"
+      response = @idtbeyond.post_topup "76560", "amount", "carrier-code", "country-code", "phone-number"
       expect(response["success"]).to eq(true)
     end
   end
