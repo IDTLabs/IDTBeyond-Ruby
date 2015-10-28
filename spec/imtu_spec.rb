@@ -18,7 +18,7 @@ describe "IDTBeyond - IMTU" do
                   "Accept"=>"*/*",
                   "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
                   "Content-Type"=>"application/x-www-form-urlencoded",
-                  "User-Agent"=>"Faraday v0.9.1",
+                  "User-Agent"=>"Faraday v0.9.2",
                   "X-Idt-Beyond-App-Id"=>"app-id",
                   "X-Idt-Beyond-App-Key"=>"app-key"}).
           to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -35,7 +35,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -53,7 +53,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -70,7 +70,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -96,7 +96,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -114,7 +114,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -128,7 +128,7 @@ describe "IDTBeyond - IMTU" do
       with(:headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"alive\":true}", :headers => {})
@@ -153,7 +153,7 @@ describe "IDTBeyond - IMTU" do
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
     "Content-Type"=>"application/x-www-form-urlencoded",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -172,7 +172,7 @@ describe "IDTBeyond - IMTU" do
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
     "Content-Type"=>"application/x-www-form-urlencoded",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -191,7 +191,7 @@ describe "IDTBeyond - IMTU" do
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
     "Content-Type"=>"application/x-www-form-urlencoded",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
@@ -208,7 +208,7 @@ describe "IDTBeyond - IMTU" do
       :headers => {
     "Accept"=>"*/*",
     "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-    "User-Agent"=>"Faraday v0.9.1",
+    "User-Agent"=>"Faraday v0.9.2",
     "X-Idt-Beyond-App-Id"=>"app-id",
     "X-Idt-Beyond-App-Key"=>"app-key"}).
       to_return(:status => 200, :body => "{\"success\":true}", :headers => {})
